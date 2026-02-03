@@ -5,6 +5,7 @@ import { Space_Grotesk } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
+import { ThemeProvider } from 'next-themes';
 import type { PropsWithChildren } from 'react';
 
 import { ROUTING } from '@/i18n/routing';
@@ -36,8 +37,12 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${spaceGrotesk.variable} bg-neutral-950 text-neutral-100 antialiased`}>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+      <body className={`${spaceGrotesk.variable} antialiased`}>
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            {children}
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
