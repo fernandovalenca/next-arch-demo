@@ -39,6 +39,7 @@ export function CryptoSwitcher({ cryptos, defaultCrypto }: CryptoSwitcherProps) 
                 width={100}
                 height={100}
                 preload
+                loading="eager"
               />
               <div className="flex flex-col gap-0.5 leading-none">
                 <span className="font-medium">Crypto</span>
@@ -57,6 +58,7 @@ export function CryptoSwitcher({ cryptos, defaultCrypto }: CryptoSwitcherProps) 
                   width={100}
                   height={100}
                   preload
+                  loading="eager"
                 />
                 {crypto.label} {crypto.id === selectedCrypto.id && <Check className="ml-auto" />}
               </DropdownMenuItem>

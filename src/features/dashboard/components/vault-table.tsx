@@ -67,7 +67,7 @@ export function VaultTable() {
             <TableCell className="font-medium">
               <div className="flex items-center gap-2">
                 <Avatar className="h-6 w-6">
-                  <Image src={vault.imageUrl} height={24} width={24} alt={vault.name} />
+                  <Image src={vault.imageUrl} height={24} width={24} alt={vault.name} loading="eager" preload />
                 </Avatar>
                 <div>
                   <div className="font-medium">{vault.name}</div>
