@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Architecture Demo
 
-## Getting Started
+Este repositório representa meu **setup inicial padrão para projetos em React e Next.js**, focado em **boas práticas**, **qualidade de código** e **escalabilidade desde o primeiro commit**.
 
-First, run the development server:
+> ⚠️ **Status do projeto**  
+> Este repositório é voltado para **estudos e experimentação de boas práticas**.  
+> Ele está **em construção** e em **constante evolução**, servindo também como documentação viva dos meus aprendizados.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Objetivo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Sempre que inicio um projeto em Next.js, minha prioridade é garantir:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- previsibilidade
+- qualidade
+- escalabilidade
+- boa experiência de desenvolvimento (DX)
 
-## Learn More
+A ideia é que o projeto **rode igual para todo mundo**, em qualquer ambiente, evitando:
 
-To learn more about Next.js, take a look at the following resources:
+- bugs de configuração
+- divergência de versões
+- retrabalho
+- acoplamento arquitetural precoce
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Base técnica do projeto
 
-## Deploy on Vercel
+Este setup contempla, desde o início:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Qualidade e padronização
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **ESLint + Prettier + EditorConfig**  
+  Padrão de código consistente em todo o time.
+
+### Qualidade automatizada no fluxo de commits
+
+- **Husky + Lint-staged + Commitlint**  
+  Garantia de qualidade antes de cada commit e push.
+
+### Testes
+
+- **Jest + React Testing Library**  
+  Testes unitários e de componentes.
+- **Cypress**  
+  Testes end-to-end (E2E).
+
+> Obs: o Jest está configurado para não falhar caso ainda não existam testes, facilitando a evolução incremental do projeto.
+
+### Design System e documentação
+
+- **Storybook**  
+  Isolamento, documentação e validação visual de componentes.
+
+### Ambiente e consistência
+
+- **.nvmrc**  
+  Versão única do Node.js.
+- **Docker (Dockerfile + Docker Compose)**  
+  Ambiente previsível do desenvolvimento ao deploy.
+
+### Configuração segura
+
+- **.env.example**
+- **Validação de variáveis de ambiente com Zod**  
+  Configuração explícita, segura e previsível.
+
+### CI
+
+- Pipeline com:
+  - lint
+  - test
+  - build  
+    Garantindo qualidade desde o primeiro PR.
+
+---
+
+## Arquitetura e organização
+
+Para aplicações médias e grandes, utilizo **Feature Slice Design (FSD)** / **feature-based architecture**.
+
+### Por quê?
+
+- Escala melhor com o crescimento do projeto
+- Aproxima o código do domínio de negócio
+- Reduz acoplamento entre partes não relacionadas
+- Facilita manutenção e onboarding
+
+### Princípios adotados
+
+- Cada **feature é autossuficiente**
+- Tudo que é **realmente reutilizável** vive em `shared`
+- Dependências seguem regras claras de direção
+
+---
+
+## Extras que fazem diferença
+
+- Regras de arquitetura no **ESLint** (ex: `import/boundaries`)
+- Tokens de design e contratos bem definidos
+- Documentação objetiva (`README`, `CONTRIBUTING`)
+- Observabilidade básica (logs, error tracking)
+
+---
+
+## Sobre este repositório
+
+Este repositório **não representa um produto final**, mas sim:
+
+- um **laboratório de arquitetura**
+- um **guia prático de boas práticas**
+- uma **documentação dos meus estudos e decisões técnicas**
+
+Mudanças, refatorações e ajustes fazem parte do processo.
+
+---
+
+## Em evolução
+
+Novas features, melhorias arquiteturais e ajustes de tooling serão adicionados continuamente conforme os estudos avançam.
+
+Se algo mudar, é intencional 🙂
