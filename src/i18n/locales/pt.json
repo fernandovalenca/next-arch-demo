@@ -1,0 +1,15 @@
+{
+  "login": {
+    "form": {
+      "forgot_password": "Esqueci minha senha",
+      "password_placeholder": "Senha*",
+      "remember": "Lembrar meu usuário",
+      "submit": "Entrar",
+      "username_description": "Insira o seu e-mail, CPF ou passaporte.",
+      "username_placeholder": "Usuário*"
+    },
+    "help": "Ajuda",
+    "subtitle": "Entre com suas credenciais para acessar a sua conta.",
+    "title": "Login"
+  }
+}

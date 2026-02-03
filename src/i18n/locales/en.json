@@ -1,0 +1,15 @@
+{
+  "login": {
+    "form": {
+      "forgot_password": "Forgot my password",
+      "password_placeholder": "Password*",
+      "remember": "Remember my user",
+      "submit": "Sign in",
+      "username_description": "Enter your email, CPF, or passport.",
+      "username_placeholder": "User*"
+    },
+    "help": "Help",
+    "subtitle": "Enter your credentials to access your account.",
+    "title": "Login"
+  }
+}
