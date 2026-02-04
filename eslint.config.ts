@@ -1,3 +1,4 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
 import { defineConfig, globalIgnores } from 'eslint/config';
 /**
  * Presets oficiais do Next.js:
@@ -23,6 +24,7 @@ import prettier from 'eslint-config-prettier';
 import boundaries from 'eslint-plugin-boundaries';
 import importPlugin from 'eslint-plugin-import';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import storybook from 'eslint-plugin-storybook';
 import unusedImports from 'eslint-plugin-unused-imports';
 
 /**
@@ -48,11 +50,9 @@ export default defineConfig([
    * Presets base do Next + TypeScript
    */
   nextVitals,
-  nextTs,
-
-  /**
+  nextTs /**
    * Configuração principal de plugins, settings e regras customizadas
-   */
+   */,
   {
     /**
      * Plugins registrados explicitamente no Flat Config
@@ -199,15 +199,15 @@ export default defineConfig([
        */
       'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     },
-  },
-
-  /**
+  } /**
    * Integração com Prettier (deve vir depois dos presets e regras)
-   */
-  prettier,
-
-  /**
+   */,
+  prettier /**
    * Ignores globais
-   */
+   */,
   globalIgnores(DEFAULT_IGNORES),
+  {
+    files: ['**/*.stories.ts', '**/*.stories.tsx'],
+    ...storybook.configs['flat/recommended'],
+  },
 ]);
