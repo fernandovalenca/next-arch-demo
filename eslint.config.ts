@@ -209,10 +209,8 @@ export default defineConfig([
   globalIgnores(DEFAULT_IGNORES),
 
   // Storybook (tipagem incompatível com ESLint 9 — cast intencional)
-...(storybook.configs['flat/recommended'] as unknown as Linter[]).map(
-  (config) => ({
+  ...(storybook.configs['flat/recommended'] as unknown as Linter[]).map((config) => ({
     ...config,
     files: ['**/*.stories.ts', '**/*.stories.tsx'],
-  }),
-),
+  })),
 ]);
