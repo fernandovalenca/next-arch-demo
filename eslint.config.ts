@@ -1,4 +1,5 @@
 // For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import type { Linter } from 'eslint';
 import { defineConfig, globalIgnores } from 'eslint/config';
 /**
  * Presets oficiais do Next.js:
@@ -206,8 +207,12 @@ export default defineConfig([
    * Ignores globais
    */,
   globalIgnores(DEFAULT_IGNORES),
-  {
+
+  // Storybook (tipagem incompatível com ESLint 9 — cast intencional)
+...(storybook.configs['flat/recommended'] as unknown as Linter[]).map(
+  (config) => ({
+    ...config,
     files: ['**/*.stories.ts', '**/*.stories.tsx'],
-    ...storybook.configs['flat/recommended'],
-  },
+  }),
+),
 ]);
