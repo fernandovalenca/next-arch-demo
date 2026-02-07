@@ -5,6 +5,7 @@ import { SubmitButton } from '@/shared/ui/components/submit-button';
 const meta: Meta<typeof SubmitButton> = {
   title: 'Shared/UI/Components/SubmitButton',
   component: SubmitButton,
+
   args: {
     children: 'Enviar',
     isLoading: false,
@@ -33,15 +34,15 @@ export default meta;
 
 type Story = StoryObj<typeof SubmitButton>;
 
-export const Padrao: Story = {};
+export const Default: Story = {};
 
-export const Carregando: Story = {
+export const Loading: Story = {
   args: {
     isLoading: true,
   },
 };
 
-export const Desabilitado: Story = {
+export const Disabled: Story = {
   args: {
     disabled: true,
   },

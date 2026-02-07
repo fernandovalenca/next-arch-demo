@@ -12,7 +12,12 @@ type SubmitButtonProps = {
 export const SubmitButton = forwardRef<HTMLButtonElement, SubmitButtonProps>(
   ({ children, className, isLoading = false, disabled, ...rest }, ref) => {
     return (
-      <Button ref={ref} disabled={isLoading || disabled} className={cn('', className)} {...rest}>
+      <Button
+        ref={ref}
+        disabled={isLoading || disabled}
+        className={cn('cursor-pointer disabled:pointer-events-auto disabled:cursor-not-allowed', className)}
+        {...rest}
+      >
         {isLoading && <Spinner data-testid="spinner" />}
         {children}
       </Button>
